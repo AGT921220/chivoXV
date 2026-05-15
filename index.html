@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Invitación digital — XV años de Iris Marcela. 13 de junio de 2026."
+    />
+    <title>Mis XV — Iris Marcela</title>
+    <!-- Tipografías: cambia las URLs en Google Fonts si deseas otra combinación -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!--
+      TEXTOS: edita el contenido de cada <section> según necesites.
+      COLORES / TIPOGRAFÍA: styles.css → :root.
+      FECHA, MAPS: script.js → CONFIG.
+      IMÁGENES: carpeta images/ → 1.jpeg … 7.jpeg (rutas en script.js → CONFIG.FOTOS).
+      Reparto: 6.jpeg = hero | 1.jpeg = retrato | 2,3,4,5,7 = galería.
+      Referencia visual: coloca images/ejemplo.jpeg y ajústalo en styles.css si quieres textura de fondo.
+    -->
+    <a class="skip-link" href="#contenido-principal">Saltar al contenido</a>
+
+    <!-- Cierre de invitación: un clic abre, muestra la página y activa la música (script.js → initPuertaAudio) -->
+    <div
+      id="audio-gate"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="audio-gate-title"
+      aria-describedby="audio-gate-desc"
+      class="audio-gate audio-gate--visible"
+      aria-hidden="false"
+    >
+      <div class="audio-gate__backdrop" aria-hidden="true"></div>
+      <div class="audio-gate__stage">
+        <div class="audio-gate__persp">
+          <div class="audio-gate__sobre">
+            <div class="audio-gate__cuerpo">
+              <div class="audio-gate__interior">
+                <p class="audio-gate__kicker" id="audio-gate-title">Mis XV</p>
+                <p class="audio-gate__nombre">Iris Marcela</p>
+                <p class="audio-gate__hint" id="audio-gate-desc">Toca el sobre para abrir</p>
+                <button
+                  type="button"
+                  class="audio-gate__abrir"
+                  id="audio-gate-accept"
+                  aria-label="Abrir invitación y reproducir música"
+                >
+                  <span class="audio-gate__sello" aria-hidden="true">
+                    <span class="audio-gate__sello-cera"></span>
+                    <span class="audio-gate__sello-inicial">I</span>
+                  </span>
+                  <span class="audio-gate__abrir-texto">Abrir invitación</span>
+                </button>
+              </div>
+            </div>
+            <div class="audio-gate__solapa" aria-hidden="true">
+              <span class="audio-gate__solapa-doblez" aria-hidden="true"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Música de fondo: archivo en music/ (ver CONFIG.AUDIO_SRC en script.js) -->
+    <audio id="musica-fondo" preload="auto" loop playsinline hidden>
+      <source src="music/no_crezcas_mas.mp3" type="audio/mpeg" />
+    </audio>
+    <div class="music-player">
+      <button
+        type="button"
+        class="music-player__btn"
+        id="btn-musica"
+        aria-pressed="false"
+        aria-controls="musica-fondo"
+        aria-label="Reproducir o pausar música de fondo"
+      >
+        <span class="music-player__glyph" aria-hidden="true">♪</span>
+        <span class="music-player__text">Música</span>
+      </button>
+    </div>
+
+    <div class="invitacion-envoltura">
+      <article class="invitacion" id="invitacion" aria-label="Invitación">
+        <header class="hero" id="inicio" aria-labelledby="hero-titulo">
+      <!-- FOTO PORTADA: images/6.jpeg (CONFIG.FOTOS.HERO) -->
+      <div class="hero__media" aria-hidden="true">
+        <img
+          id="foto-hero"
+          class="hero__photo"
+          src="images/6.jpeg"
+          alt=""
+          width="1600"
+          height="2200"
+          decoding="async"
+          fetchpriority="high"
+        />
+        <div class="hero__veil"></div>
+        <div class="hero__pattern"></div>
+      </div>
+      <div class="hero__frame" aria-hidden="true"></div>
+
+      <div class="hero__inner">
+        <p class="hero__kicker hero__enter hero__enter--1" id="hero-titulo">Mis XV</p>
+        <h1 class="hero__name hero__enter hero__enter--2">Iris Marcela</h1>
+        <p class="hero__tagline hero__enter hero__enter--3">
+          Un día lleno de sueños, gratitud y nuevos comienzos. Será un honor
+          compartirlo contigo.
+        </p>
+
+        <nav class="hero__actions hero__enter hero__enter--4" aria-label="Accesos rápidos del evento">
+          <a class="btn btn--ghost" href="#misa">Ver ubicación misa</a>
+          <a class="btn btn--ghost" href="#recepcion">Ver ubicación recepción</a>
+          <a class="btn btn--primary" href="#galeria-visual">Ver galería</a>
+        </nav>
+      </div>
+    </header>
+
+        <main id="contenido-principal" class="invitacion__cuerpo">
+      <!-- 2. Presentación -->
+      <section class="section section--intro reveal" aria-labelledby="intro-titulo">
+        <div class="section__inner card card--soft">
+          <div class="ornament ornament--top" aria-hidden="true"></div>
+          <h2 class="section__title" id="intro-titulo">Nuestra invitación</h2>
+          <p class="lead">
+            Con gran alegría te invitamos a celebrar este día tan especial en la
+            vida de <strong>Iris Marcela</strong>. Tu presencia hará este momento
+            aún más memorable.
+          </p>
+          <div class="ornament ornament--bottom" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <!-- RETRATO: images/1.jpeg (CONFIG.FOTOS.RETRATO) -->
+      <section class="section section--portrait reveal" aria-labelledby="retrato-titulo">
+        <div class="section__inner portrait">
+          <h2 class="portrait__title" id="retrato-titulo">Un instante para el recuerdo</h2>
+          <figure class="portrait__figure">
+            <div class="portrait__frame">
+              <img
+                id="foto-retrato"
+                class="portrait__img"
+                src="images/1.jpeg"
+                alt="Iris Marcela"
+                width="900"
+                height="1125"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <figcaption class="portrait__caption">
+              Con la misma dulzura con la que sueña el corazón en esta edad hermosa.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!--
+        GALERÍA (5 fotos en mosaico/carrusel; con hero + retrato = 7 imágenes en total).
+        Archivos: images/2.jpeg … 5.jpeg e images/7.jpeg
+        Orden y rutas en bloque: script.js → CONFIG.FOTOS.GALERIA
+        Animación al entrar en pantalla: script.js → initGaleriaObserver (IntersectionObserver)
+      -->
+      <section
+        class="section section--gallery reveal"
+        id="galeria-visual"
+        aria-labelledby="galeria-titulo"
+      >
+        <div class="section__inner section__inner--wide">
+          <h2 class="section__title" id="galeria-titulo">Galería</h2>
+          <p class="gallery__intro">Momentos especiales de Iris Marcela</p>
+          <!-- Carrusel horizontal (móvil) / grid (tablet y escritorio): estilos en styles.css → bloque Galería -->
+          <div
+            class="gallery__viewport"
+            tabindex="0"
+            role="region"
+            aria-label="Galería de fotografías. En pantallas pequeñas puedes deslizar horizontalmente."
+          >
+            <div class="gallery" role="list">
+              <!-- images/2.jpeg -->
+              <figure
+                class="gallery__cell js-galeria-item"
+                role="listitem"
+                data-gallery-i="0"
+                style="--gallery-i: 0"
+                tabindex="0"
+              >
+                <div class="gallery__shine" aria-hidden="true"></div>
+                <img
+                  class="gallery__img"
+                  data-gallery-index="0"
+                  src="images/2.jpeg"
+                  alt="Iris Marcela"
+                  width="800"
+                  height="1000"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <!-- images/3.jpeg -->
+              <figure
+                class="gallery__cell js-galeria-item"
+                role="listitem"
+                data-gallery-i="1"
+                style="--gallery-i: 1"
+                tabindex="0"
+              >
+                <div class="gallery__shine" aria-hidden="true"></div>
+                <img
+                  class="gallery__img"
+                  data-gallery-index="1"
+                  src="images/3.jpeg"
+                  alt="Iris Marcela"
+                  width="800"
+                  height="1000"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <!-- images/4.jpeg -->
+              <figure
+                class="gallery__cell js-galeria-item"
+                role="listitem"
+                data-gallery-i="2"
+                style="--gallery-i: 2"
+                tabindex="0"
+              >
+                <div class="gallery__shine" aria-hidden="true"></div>
+                <img
+                  class="gallery__img"
+                  data-gallery-index="2"
+                  src="images/4.jpeg"
+                  alt="Iris Marcela"
+                  width="800"
+                  height="1000"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <!-- images/5.jpeg -->
+              <figure
+                class="gallery__cell js-galeria-item"
+                role="listitem"
+                data-gallery-i="3"
+                style="--gallery-i: 3"
+                tabindex="0"
+              >
+                <div class="gallery__shine" aria-hidden="true"></div>
+                <img
+                  class="gallery__img"
+                  data-gallery-index="3"
+                  src="images/5.jpeg"
+                  alt="Iris Marcela"
+                  width="800"
+                  height="1200"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <!-- images/7.jpeg -->
+              <figure
+                class="gallery__cell js-galeria-item"
+                role="listitem"
+                data-gallery-i="4"
+                style="--gallery-i: 4"
+                tabindex="0"
+              >
+                <div class="gallery__shine" aria-hidden="true"></div>
+                <img
+                  class="gallery__img"
+                  data-gallery-index="4"
+                  src="images/7.jpeg"
+                  alt="Iris Marcela"
+                  width="800"
+                  height="1000"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Fecha -->
+      <section class="section section--date reveal" aria-labelledby="fecha-titulo">
+        <div class="date-banner">
+          <p class="date-banner__label" id="fecha-titulo">Guarda la fecha</p>
+          <p class="date-banner__value">13 de junio de 2026</p>
+        </div>
+      </section>
+
+      <!-- 4. Familia -->
+      <section class="section reveal" aria-labelledby="familia-titulo">
+        <div class="section__inner">
+          <h2 class="section__title" id="familia-titulo">Quienes la acompañan</h2>
+          <div class="grid-people">
+            <article class="people-block">
+              <h3 class="people-block__role">Papás</h3>
+              <ul class="people-block__list">
+                <li>Alejandra Rivero</li>
+                <li>Lorenzo Domínguez</li>
+              </ul>
+            </article>
+            <article class="people-block">
+              <h3 class="people-block__role">Chambelán</h3>
+              <p class="people-block__single">Santiago Rivero</p>
+            </article>
+            <article class="people-block people-block--wide">
+              <h3 class="people-block__role">Padrinos</h3>
+              <ul class="people-block__list people-block__list--cols">
+                <li>Adrian Hernández</li>
+                <li>Rocio Rivero</li>
+                <li>Héctor Murillo</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ceremonia y fiesta (dos columnas en pantallas anchas) -->
+      <section class="section reveal" id="lugares" aria-labelledby="lugares-titulo">
+        <div class="section__inner">
+          <h2 class="section__title" id="lugares-titulo">Ceremonia y celebración</h2>
+          <div class="eventos-grid">
+            <article class="event-card" id="misa" aria-labelledby="misa-titulo">
+              <header class="event-card__header">
+                <span class="event-card__icon" aria-hidden="true">✦</span>
+                <h3 class="event-card__title" id="misa-titulo">Misa</h3>
+              </header>
+              <p class="event-card__place">Iglesia del Señor de los Guerreros</p>
+              <address class="event-card__address">
+                Calle Guadalupe Victoria y 12 #1012<br />
+                Col. Villa Juárez
+              </address>
+              <p class="event-card__time"><time datetime="2026-06-13T16:00">4:00 PM</time></p>
+              <a
+                class="btn btn--outline js-map-misa"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Cómo llegar
+              </a>
+            </article>
+            <article class="event-card event-card--alt" id="recepcion" aria-labelledby="recepcion-titulo">
+              <header class="event-card__header">
+                <span class="event-card__icon" aria-hidden="true">✦</span>
+                <h3 class="event-card__title" id="recepcion-titulo">Recepción</h3>
+              </header>
+              <p class="event-card__place">Salón Royal Titanic</p>
+              <address class="event-card__address">
+                Calle Guadalupe Victoria y 9a #711<br />
+                Villa Juárez
+              </address>
+              <p class="event-card__time"><time datetime="2026-06-13T21:00">9:00 PM</time></p>
+              <a
+                class="btn btn--outline js-map-recepcion"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Cómo llegar
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. Indicaciones -->
+      <section class="section reveal" aria-labelledby="indicaciones-titulo">
+        <div class="section__inner">
+          <div class="info-card" role="region" aria-labelledby="indicaciones-titulo">
+            <h2 class="info-card__title" id="indicaciones-titulo">Indicaciones importantes</h2>
+            <ul class="info-card__list">
+              <li><span class="info-card__accent">Vestimenta</span> formal</li>
+              <li><span class="info-card__accent">Evento</span> sin niños</li>
+              <li>
+                <span class="info-card__accent">Color reservado</span> verde para la
+                quinceañera
+              </li>
+              <li><span class="info-card__accent">Regalo</span> lluvia de sobres</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. Cuenta regresiva -->
+      <section class="section section--countdown reveal" aria-labelledby="countdown-titulo">
+        <div class="section__inner">
+          <h2 class="section__title section__title--light" id="countdown-titulo">
+            Falta poco para el gran día
+          </h2>
+          <div class="countdown" id="countdown" role="timer" aria-live="polite">
+            <div class="countdown__unit">
+              <span class="countdown__value" data-unit="days">00</span>
+              <span class="countdown__label">Días</span>
+            </div>
+            <div class="countdown__unit">
+              <span class="countdown__value" data-unit="hours">00</span>
+              <span class="countdown__label">Horas</span>
+            </div>
+            <div class="countdown__unit">
+              <span class="countdown__value" data-unit="minutes">00</span>
+              <span class="countdown__label">Minutos</span>
+            </div>
+            <div class="countdown__unit">
+              <span class="countdown__value" data-unit="seconds">00</span>
+              <span class="countdown__label">Segundos</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+        <footer class="footer invitacion__pie reveal">
+      <div class="footer__ornament" aria-hidden="true"></div>
+      <p class="footer__text">
+        Gracias por ser parte de este momento tan especial.
+      </p>
+      <p class="footer__sub">Con cariño, familia de Iris Marcela</p>
+    </footer>
+      </article>
+    </div>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>

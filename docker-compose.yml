@@ -1,0 +1,8 @@
+services:
+  invitacion-html:
+    build: .
+    image: invitacion-html:latest
+    container_name: invitacion-html
+    restart: unless-stopped
+    ports:
+      - "8100:80"

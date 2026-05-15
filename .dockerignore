@@ -1,0 +1,22 @@
+# Git y entorno
+.git
+.gitignore
+**/.DS_Store
+Thumbs.db
+
+# Documentación de despliegue (no hace falta dentro de la imagen)
+README_DEPLOY.md
+
+# Editor / IDE
+.cursor
+.vscode
+.idea
+*.swp
+*.swo
+
+# Logs y temporales
+*.log
+tmp/
+temp/
+
+# No excluir: Dockerfile, nginx.conf, index.html, styles.css, script.js, images/, music/
