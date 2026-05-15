@@ -1693,6 +1693,24 @@ button.btn {
   color: var(--color-muted);
 }
 
+.footer__credit {
+  margin: var(--space-md) 0 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+.footer__credit a {
+  color: var(--color-muted);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(184, 149, 108, 0.35);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.footer__credit a:hover {
+  color: var(--color-olive);
+  border-bottom-color: var(--color-gold);
+}
+
 /* Animación al scroll: secciones + retardo escalonado (--reveal-order lo asigna script.js) */
 .reveal {
   opacity: 0;
